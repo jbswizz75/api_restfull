@@ -1,20 +1,11 @@
 const express = require('express');
 const app = express();
 const fs = require("fs");
-
-let user = {
-    "user4" : {
-        "name" : "mohit",
-        "password" : "password4",
-        "profession" : "teacher",
-        "id" : 4
-    }
-}
          
 /*
 *
 * method >listUsers
-*
+* method 'GET' : creation d'une liste users
 */
 
 app.get('/listUsers', function(req, res){
@@ -38,6 +29,21 @@ app.post('/addUser', function(req, res){
         res.send(JSON.stringify(data));
     });
 })
+
+let user = {
+    "user4" : {
+        "name" : "mohit",
+        "password" : "password4",
+        "profession" : "teacher",
+        "id" : 4
+    }
+}
+
+/*
+*
+* Creation serveur
+*
+*/
 
 let server = app.listen(8081, function(){
     let host = server.address().address
