@@ -53,7 +53,7 @@ app.get('/:id', function(req, res){
         //Variable 'user' will retrieve user information by id
         let user = users["user" + req.params.id]
         //Display user information by id
-        console.log("User Info by id: " + JSON.stringify(user));
+        console.log("User Info : " + JSON.stringify(user));
         res.send(JSON.stringify(data));
     });
 })
