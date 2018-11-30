@@ -41,6 +41,26 @@ let user = {
 
 /*
 *
+* method > getUserById
+* method 'GET' : recuperer la resource d'un utilisateur par son identifiant
+*/
+
+app.get('/:id', function(req, res){
+    fs.readFile(__dirname + "/" + "users.json", 'utf-8', function(err, data){
+        if(err) throw err;
+        //Variable 'users' will contain the result of users information to retrieve all ressource
+        let users = JSON.parse(data);
+        //Variable 'user' will retrieve user information by id
+        let user = users["user" + req.params.id]
+        //Display user information by id
+        console.log("User Info by id: " + JSON.stringify(user));
+        res.send(JSON.stringify(data));
+    });
+})
+
+
+/*
+*
 * Creation serveur
 *
 */
