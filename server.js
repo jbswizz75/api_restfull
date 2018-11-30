@@ -54,7 +54,7 @@ app.get('/:id', function(req, res){
         let user = users["user" + req.params.id]
         //Display user information by id
         console.log("User Info : " + JSON.stringify(user));
-        res.send(JSON.stringify(data));
+        res.send(JSON.stringify(user));
     });
 })
 
