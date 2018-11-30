@@ -64,7 +64,7 @@ app.get('/:id', function(req, res){
 * method 'DELETE' : Supprimer une ressource utilisateur
 */
 
-app.get('/deleteUser', function(req, res){
+app.delete('/deleteUser', function(req, res){
     fs.readFile(__dirname + "/" + "users.json", 'utf-8', function(err, data){
         //Variable 'data' will contain the result of users informations to retrieve all ressources
         data = JSON.parse(data);
