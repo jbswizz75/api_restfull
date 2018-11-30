@@ -73,7 +73,7 @@ app.delete('/deleteUser', function(req, res){
         //Display in log data of the delete user 
         console.log("Delete user: " + data);
         //Send the information of the result with the user deleted
-        res.send(JSON.stringify(user));
+        res.send(JSON.stringify(data));
     });
 })
 
