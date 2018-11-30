@@ -48,12 +48,31 @@ let user = {
 app.get('/:id', function(req, res){
     fs.readFile(__dirname + "/" + "users.json", 'utf-8', function(err, data){
         if(err) throw err;
-        //Variable 'users' will contain the result of users information to retrieve all ressource
+        //Variable 'users' will contain the result of users information to retrieve all ressources
         let users = JSON.parse(data);
         //Variable 'user' will retrieve user information by id
         let user = users["user" + req.params.id]
         //Display user information by id
-        console.log("User Info : " + JSON.stringify(user));
+        console.log("User Info by id: " + JSON.stringify(user));
+        res.send(JSON.stringify(user));
+    });
+})
+
+/*
+*
+* method > DeleteUser
+* method 'DELETE' : Supprimer une ressource utilisateur
+*/
+
+app.get('/deleteUser', function(req, res){
+    fs.readFile(__dirname + "/" + "users.json", 'utf-8', function(err, data){
+        //Variable 'data' will contain the result of users informations to retrieve all ressources
+        data = JSON.parse(data);
+        //Delete a user (id:2)
+        delete data["user" + 2];
+        //Display in log data of the delete user 
+        console.log("Delete user: " + data);
+        //Send the information of the result with the user deleted
         res.send(JSON.stringify(user));
     });
 })
